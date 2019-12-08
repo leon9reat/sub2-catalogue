@@ -12,18 +12,18 @@ import com.medialink.sub2catalogue.R
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var profileViewModel: ProfileViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
+        profileViewModel =
+            ViewModelProviders.of(this).get(ProfileViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
         val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(this, Observer {
+        profileViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

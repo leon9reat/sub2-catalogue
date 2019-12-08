@@ -67,7 +67,6 @@ class MovieFragment : Fragment(), MovieAdapter.ItemClickListener {
         } else {
             rv_movie.layoutManager = GridLayoutManager(context, 2)
             rv_movie.addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            rv_movie.addItemDecoration(DividerItemDecoration(context, RecyclerView.HORIZONTAL))
         }
 
         rv_movie.adapter = adapter

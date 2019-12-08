@@ -10,7 +10,7 @@
     android:paddingBottom="4dp">
 
     <ImageView
-        android:id="@+id/img_poster"
+        android:id="@+id/img_poster_tv_show"
         android:layout_width="120dp"
         android:layout_height="160dp"
         android:contentDescription="@string/description_poster"
@@ -28,7 +28,7 @@
         android:progressDrawable="@drawable/circle"
         android:progress="50"
         android:layout_marginStart="8dp"
-        app:layout_constraintStart_toEndOf="@+id/img_poster"
+        app:layout_constraintStart_toEndOf="@+id/img_poster_tv_show"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

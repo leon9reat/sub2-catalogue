@@ -12,20 +12,20 @@ import com.medialink.sub2catalogue.R
 
 class TvShowFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var tvShowViewModel: TvShowViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+        tvShowViewModel =
+            ViewModelProviders.of(this).get(TvShowViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_tv_show, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(this, Observer {
+        /*val textView: TextView = root.findViewById(R.id.text_dashboard)
+        tvShowViewModel.text.observe(this, Observer {
             textView.text = it
-        })
+        })*/
         return root
     }
 }

@@ -28,11 +28,9 @@ android {
         debug {
             def debugApiKey = '"65533e43224cd1a4e69fb25527b5735e"'
             buildConfigField("String", "TMDB_API_KEY", debugApiKey)
-            resValue 'string', 'api_key', debugApiKey
         }
         release {
             buildConfigField("String", "TMDB_API_KEY", tmdbApiKey)
-            resValue 'string', 'api_key', tmdbApiKey
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

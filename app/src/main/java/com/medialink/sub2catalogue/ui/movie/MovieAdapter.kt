@@ -22,7 +22,7 @@ class MovieAdapter(
                 Glide.with(itemView.context)
                     .load("${Consts.TMDB_PHOTO_URL}${movie.posterPath}")
                     .override(120, 160)
-                    .into(img_poster)
+                    .into(img_poster_tv_show)
 
                 percent_vote_average.progress = movie.voteAverage?.times(10)?.toInt() ?: 0
                 tv_vote_average.text = "${percent_vote_average.progress}%"
