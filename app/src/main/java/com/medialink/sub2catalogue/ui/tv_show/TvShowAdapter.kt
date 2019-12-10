@@ -27,7 +27,7 @@ class TvShowAdapter(
                     .override(120, 160)
                     .into(img_poster_tv_show)
                 progress_vote_tv_show.progress = tvShow.voteAverage?.times(10)?.toInt() ?: 0
-                tv_vote_tv_show.text = "${progress_vote_tv_show.progress}"
+                tv_vote_tv_show.text = "${progress_vote_tv_show.progress}%"
 
 
                 tv_title_tv_show.text = tvShow.name

@@ -12,14 +12,26 @@
         tools:layout="@layout/fragment_movie">
         <action
             android:id="@+id/action_navigation_movie_to_movieDetailFragment"
-            app:destination="@id/movieDetailFragment" />
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_tv_show"
         android:name="com.medialink.sub2catalogue.ui.tv_show.TvShowFragment"
         android:label="@string/title_tv_show"
-        tools:layout="@layout/fragment_tv_show" />
+        tools:layout="@layout/fragment_tv_show">
+        <action
+            android:id="@+id/action_navigation_tv_show_to_tvShowDetailFragment"
+            app:destination="@id/tvShowDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -35,5 +47,14 @@
         <argument
             android:name="movie"
             app:argType="com.medialink.sub2catalogue.models.movie.Movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvShowDetailFragment"
+        android:name="com.medialink.sub2catalogue.ui.tv_show.TvShowDetailFragment"
+        android:label="fragment_tv_show_detail"
+        tools:layout="@layout/fragment_tv_show_detail">
+        <argument
+            android:name="tvShow"
+            app:argType="com.medialink.sub2catalogue.models.tv_show.TvShow" />
     </fragment>
 </navigation>

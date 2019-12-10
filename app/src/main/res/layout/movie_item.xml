@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="@id/percent_vote_average" />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_title_tv_show"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -66,10 +66,10 @@
         android:layout_height="wrap_content"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/percent_vote_average"
-        app:layout_constraintEnd_toEndOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_tv_show"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintStart_toStartOf="@id/tv_title_tv_show"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_tv_show"
         tools:text="2019-09-19" />
 
     <TextView
@@ -81,7 +81,7 @@
         android:ellipsize="end"
         android:maxLines="4"
         app:layout_constraintBottom_toTopOf="@+id/tv_more_info"
-        app:layout_constraintEnd_toEndOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_tv_show"
         app:layout_constraintStart_toStartOf="@id/percent_vote_average"
         app:layout_constraintTop_toBottomOf="@id/tv_release_date"
         tools:text="After fighting his demons for decades, John Rambo now lives in peace on his family ranch in Arizona, but his rest is interrupted when Gabriela, the granddaughter of his housekeeper María, disappears after crossing the border into Mexico to meet her biological father. Rambo, who has become a true father figure for Gabriela over the years, undertakes a desperate and dangerous journey to find her." />
@@ -97,7 +97,7 @@
         android:padding="8dp"
         android:text="@string/text_more_info"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="@id/tv_title_tv_show"
         app:layout_constraintStart_toStartOf="@id/percent_vote_average" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

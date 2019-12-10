@@ -2,7 +2,7 @@ package com.medialink.sub2catalogue.models.errors
 
 import com.google.gson.annotations.SerializedName
 
-data class Response401(
+data class ErrorRespon(
 
     @field:SerializedName("status_message")
     val statusMessage: String? = null,

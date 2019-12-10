@@ -1,7 +1,10 @@
 package com.medialink.sub2catalogue.models.tv_show
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class TvShow(
 
     @field:SerializedName("first_air_date")
@@ -42,4 +45,4 @@ data class TvShow(
 
     @field:SerializedName("vote_count")
     val voteCount: Int? = null
-)
+) : Parcelable

@@ -7,10 +7,20 @@
     <string name="text_no_data">No Data</string>
     <string name="description_poster">Poster Image</string>
     <string name="text_more_info">More Info</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="label_title">Title</string>
     <string name="label_release_date">Released Date</string>
     <string name="label_vote">Average Vote</string>
     <string name="label_overview">Overview</string>
+    <string name="label_airing">Airing Date</string>
+    <string name="user_name">Bambang A</string>
+    <string name="text_follow_me">Follow Me</string>
+    <string name="text_show_comments">Show all comments</string>
+    <string name="text_add_group">Add To Group</string>
+    <string name="text_phone">+62 8134 5019 699</string>
+    <string name="text_email">cyber.hecker@gmail.com</string>
+    <string name="label_following">Following</string>
+    <string name="label_follower">Followers</string>
+    <string name="label_photo">Photos</string>
+    <string name="description_profile">Photo Profile</string>
+    <string name="change_language">Change Language</string>
 </resources>

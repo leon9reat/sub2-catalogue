@@ -22,15 +22,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file("local.properties").newDataInputStream())
-        def tmdbApiKey = properties.getProperty("tmdb.api.key")
+        //Properties properties = new Properties()
+        //properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        //def tmdbApiKey = properties.getProperty("tmdb.api.key")
         debug {
             def debugApiKey = '"65533e43224cd1a4e69fb25527b5735e"'
             buildConfigField("String", "TMDB_API_KEY", debugApiKey)
+            resValue 'string', 'api_key', debugApiKey
         }
         release {
+            def tmdbApiKey = '"65533e43224cd1a4e69fb25527b5735e"'
             buildConfigField("String", "TMDB_API_KEY", tmdbApiKey)
+            resValue 'string', 'api_key', tmdbApiKey
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

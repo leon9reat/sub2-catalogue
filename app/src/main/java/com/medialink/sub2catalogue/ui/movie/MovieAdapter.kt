@@ -27,7 +27,7 @@ class MovieAdapter(
                 percent_vote_average.progress = movie.voteAverage?.times(10)?.toInt() ?: 0
                 tv_vote_average.text = "${percent_vote_average.progress}%"
 
-                tv_title.text = movie.title
+                tv_title_tv_show.text = movie.title
                 tv_release_date.text = movie.releaseDate
                 tv_overview.text = movie.overview
                 tv_more_info.setOnClickListener {

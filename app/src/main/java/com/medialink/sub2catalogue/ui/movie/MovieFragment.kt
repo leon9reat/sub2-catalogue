@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -18,6 +19,7 @@ import com.medialink.sub2catalogue.R
 import com.medialink.sub2catalogue.models.movie.Movie
 import kotlinx.android.synthetic.main.fragment_movie.*
 import kotlinx.android.synthetic.main.layout_error.*
+import java.util.*
 
 class MovieFragment : Fragment(), MovieAdapter.ItemClickListener {
 
@@ -28,22 +30,33 @@ class MovieFragment : Fragment(), MovieAdapter.ItemClickListener {
         const val TAG = "debug"
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.let {
+            movieViewModel = ViewModelProviders.of(it).get(MovieViewModel::class.java)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_movie, container, false)
-        activity?.let {
-            movieViewModel = ViewModelProviders.of(it).get(MovieViewModel::class.java)
-        }
-        return root
+        return inflater.inflate(R.layout.fragment_movie, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setupViewModel()
         setupUi()
+
+        if (!Locale.getDefault().language.equals(movieViewModel.lokal)) {
+            movieViewModel.loadMovie(1)
+            movieViewModel.lokal = Locale.getDefault().language
+        }
+
+        Toast.makeText(context, "TODO: Refresh", Toast.LENGTH_SHORT).show()
     }
 
     private fun setupViewModel() {
@@ -54,11 +67,6 @@ class MovieFragment : Fragment(), MovieAdapter.ItemClickListener {
     }
 
     private fun setupUi() {
-        adapter = MovieAdapter(
-            movieViewModel.movies.value ?: emptyList(),
-            this
-        )
-
         rv_movie.setHasFixedSize(true)
         val i = resources.configuration.orientation
         if (i == Configuration.ORIENTATION_PORTRAIT) {
@@ -68,10 +76,11 @@ class MovieFragment : Fragment(), MovieAdapter.ItemClickListener {
             rv_movie.layoutManager = GridLayoutManager(context, 2)
             rv_movie.addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
         }
-
+        adapter = MovieAdapter(
+            movieViewModel.movies.value ?: emptyList(),
+            this
+        )
         rv_movie.adapter = adapter
-
-
     }
 
     private val renderMovies = Observer<List<Movie>> {
@@ -84,22 +93,17 @@ class MovieFragment : Fragment(), MovieAdapter.ItemClickListener {
     private val isViewLoadingObserver = Observer<Boolean> {
         val visibility = if (it) View.VISIBLE else View.GONE
         progress_movie.visibility = visibility
-
-        Log.d(TAG, "isViewLoading $it")
     }
 
     private val onMessageErrorObserver = Observer<Any> {
         layout_empty.visibility = View.GONE
         layout_error.visibility = View.VISIBLE
         tv_error.text = "Error $it"
-
-        Log.d(TAG, "emptyListObserver $it")
     }
 
     private val emptyListObserver = Observer<Boolean> {
         val visibility = if (it) View.VISIBLE else View.GONE
         layout_empty.visibility = visibility
-        Log.d(TAG, "emptyListObserver $it")
     }
 
     override fun onItemClicked(movie: Movie) {
@@ -107,4 +111,5 @@ class MovieFragment : Fragment(), MovieAdapter.ItemClickListener {
             .actionNavigationMovieToMovieDetailFragment(movie)
         findNavController().navigate(toMovieDetailFragment)
     }
+
 }
